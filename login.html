@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - La Esquina</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <main>
+        <section class="seccion-login">
+            <div class="login-caja">
+
+                <h1>La Esquina</h1>
+                <h2>Iniciar sesión</h2>
+                <p>Ingresa tus datos para acceder</p>
+
+                <form onsubmit="return iniciarSesion()">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" id="usuario"
+                    placeholder="Ingresa tu usuario" required>
+
+                    <label for="clave">Contraseña</label>
+                    <input type="password" id="clave"
+                    placeholder="Ingresa tu contraseña" required>
+
+                    <button type="submit">Ingresar</button>
+                    <p id="mensaje"></p>
+                </form>
+
+                <div class="opciones-login">
+                    <a href="recuperar.html">¿Olvidaste tu contraseña?</a>
+                    <p>¿No tienes una cuenta?</p>
+                    <a href="registro.html">Crear usuario</a>
+                </div>
+
+                <p class="nota">Lácteos y salsamentaria</p>
+
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function iniciarSesion() {
+            var usuario = document.getElementById("usuario").value;
+            var clave = document.getElementById("clave").value;
+
+            if (usuario == "admin" && clave == "1234") {
+                window.location.href = "index.html";
+            } else {
+                document.getElementById("mensaje").innerHTML =
+                "Usuario o contraseña incorrectos";
+            }
+
+            return false;
+        }
+    </script>
+
+</body>
+</html>

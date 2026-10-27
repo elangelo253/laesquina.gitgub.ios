@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear usuario</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <section class="seccion-login">
+        <div class="login-caja">
+
+            <h1>La Esquina</h1>
+            <h2>Crear usuario</h2>
+
+            <form onsubmit="return registrar()">
+                <label for="nuevoUsuario">Usuario</label>
+                <input type="text" id="nuevoUsuario" required>
+
+                <label for="nuevaClave">Contraseña</label>
+                <input type="password" id="nuevaClave" required>
+
+                <button type="submit">Registrarme</button>
+                <p id="mensajeRegistro"></p>
+            </form>
+
+            <div class="opciones-login">
+                <a href="login.html">Volver al inicio de sesión</a>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        function registrar() {
+            var usuario = document.getElementById("nuevoUsuario").value;
+            var clave = document.getElementById("nuevaClave").value;
+
+            localStorage.setItem("usuario", usuario);
+            localStorage.setItem("clave", clave);
+
+            document.getElementById("mensajeRegistro").innerHTML =
+            "Usuario creado. Ya puedes iniciar sesión.";
+
+            return false;
+        }
+    </script>
+
+</body>
+</html>

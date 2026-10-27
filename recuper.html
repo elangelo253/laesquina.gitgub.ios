@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar contraseña</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <section class="seccion-login">
+        <div class="login-caja">
+
+            <h1>La Esquina</h1>
+            <h2>Recuperar contraseña</h2>
+            <p>Ingresa tu usuario para consultar tu contraseña.</p>
+
+            <form onsubmit="return recuperar()">
+                <label for="usuarioRecuperar">Usuario</label>
+                <input type="text" id="usuarioRecuperar" required>
+
+                <button type="submit">Recuperar</button>
+                <p id="mensajeRecuperar"></p>
+            </form>
+
+            <div class="opciones-login">
+                <a href="login.html">Volver al inicio de sesión</a>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        function recuperar() {
+            var usuario = document.getElementById("usuarioRecuperar").value;
+            var guardado = localStorage.getItem("usuario");
+            var clave = localStorage.getItem("clave");
+
+            if (usuario == guardado && clave != null) {
+                document.getElementById("mensajeRecuperar").innerHTML =
+                "Tu contraseña es: " + clave;
+            } else {
+                document.getElementById("mensajeRecuperar").innerHTML =
+                "El usuario no existe.";
+            }
+
+            return false;
+        }
+    </script>
+
+</body>
+</html>
